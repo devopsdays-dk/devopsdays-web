@@ -7,7 +7,7 @@
   "name": "Hugo (DevOpsDays Denmark)",
 //  "image": "mcr.microsoft.com/devcontainers/universal:2",
   "build": {
-    "dockerfile": "denmark/Dockerfile",
+    "dockerfile": "Dockerfile",
     "args": {
       // Update VARIANT to pick hugo variant.
       // Example variants: hugo, hugo_extended
