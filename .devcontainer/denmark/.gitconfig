@@ -1,0 +1,21 @@
+[core]
+  hooksPath = .githooks
+
+[push]
+  default = current
+
+[pull]
+  rebase = true
+
+[alias]
+  undo-commit = reset --soft HEAD^
+  addremove = add -A
+  recommit = commit -C HEAD --amend
+  co = checkout
+  st = status
+  root =  rev-parse --show-toplevel
+  tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
+  sweep = "!f() { git fetch --prune && git checkout main && git pull && for branch in $(git branch -vv | grep ': gone]' | awk \"{print \\$1}\"); do git branch -D \"$branch\"; done; }; f"
+
+[safe]
+	directory = /workspaces/devopsdays-web
