@@ -26,7 +26,13 @@ Execute the folling command in the terminal and you'll be fine:
 hugo server \
   --baseURL https://$CODESPACE_NAME-1313.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN \
   --appendPort=false \
-  --port 1313
+  --port 1313 \
+  --appendPort=false \
+  --bind=0.0.0.0 \
+  --logLevel=debug
+  -liveReloadPort=443 \
+  -D \
+  -F
 ```
 
 Run `hugo --help` to lean a ton of other options you can apply to tweek the development to your liking. Especially these two may prove themselves useful.
