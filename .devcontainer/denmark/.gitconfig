@@ -1,5 +1,6 @@
 [core]
   hooksPath = .githooks
+	sparseCheckout = false
 
 [push]
   default = current
@@ -16,6 +17,9 @@
   root =  rev-parse --show-toplevel
   tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
   sweep = "!f() { git fetch --prune && git checkout main && git pull && for branch in $(git branch -vv | grep ': gone]' | awk \"{print \\$1}\"); do git branch -D \"$branch\"; done; }; f"
+  sparse =   "!f() { git config --file .devcontainer/denmark/.gitconfig core.sparseCheckout true  && git read-tree -m -u HEAD; }"
+  unsparse = "!f() { git config --file .devcontainer/denmark/.gitconfig core.sparseCheckout false && git read-tree -m -u HEAD; }"
+
 
 [safe]
 	directory = /workspaces/devopsdays-web
